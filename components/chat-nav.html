@@ -1,0 +1,89 @@
+<div id="nav-header">
+  <button id="button-create-join" type="button" class="btn btn-default btn-block"
+          ng-click="ctrl.showFormModal()" >CREATE / JOIN</button>
+</div>
+
+<div id="nav-rooms">
+  <div class="nav-list-header">
+    <strong>ROOMS ({{ctrl.count(ctrl.rooms)}})</strong>
+  </div>
+
+  <div class="list-group nav-list-body">
+    <a ng-repeat="room in ctrl.rooms" class="list-group-item nav-list-item"
+       ng-click="ctrl.selectRoom(room.roomId)"
+       ng-class="{active: room.roomId == ctrl.currentRoomId}">{{room.roomId}}
+
+      <span class="glyphicon glyphicon-remove-circle pull-right nav-room-btn"
+            ng-click="ctrl.showConfirmModal(room.roomId)"></span>
+      <span ng-show="ctrl.unreadCounts[room.roomId]" class="badge nav-room-badge">
+        {{ctrl.unreadCounts[room.roomId]}}</span>
+
+    </a>
+  </div>
+
+</div>
+
+<div id="nav-users">
+  <div class="nav-list-header">
+    <strong>USERS ({{ctrl.count(ctrl.users)}})</strong>
+  </div>
+
+  <div class="list-group nav-list-body">
+    <a ng-repeat="user in ctrl.users" class="list-group-item nav-list-item">
+      <img ng-src="icons/{{user.iconIndex}}.png"
+           class="img-circle nav-user-icon"
+           ng-class="{'my-icon': user.userId == ctrl.userId}">
+      <span class="nav-user-name">{{user.name}}</span>
+      <span class="glyphicon glyphicon-flash pull-right connection gi-15x"
+            ng-class="{connected: user.stompConnected}"></span>
+    </a>
+  </div>
+</div>
+
+<div id="nav-footer">
+    &copy; 2016 Kwan
+</div>
+
+<script type="text/ng-template" id="chatForm.modal">
+
+  <div class="modal-body">
+
+    <label for="roomId">Room Name</label>
+    <input id="roomId" type="text" class="form-control" autocomplete="off"
+           ng-model="roomId" placeholder="Room Name" required/>
+
+    <label for="password">Password</label>
+    <input id="password" type="text" class="form-control" autocomplete="off"
+           ng-model="password" placeholder="Password" ng-class="{required: passRequired}"/>
+
+    <label for="userName">User Name</label>
+    <input id="userName" type="text" class="form-control" autocomplete="off"
+           ng-model="userName" placeholder="User Name" required/>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default form-button-modal"
+            ng-click="ctrl.createRoom(roomId, password, userName)">Create</button>
+    <button type="button" class="btn btn-default form-button-modal"
+            ng-click="ctrl.joinRoom(roomId, password, userName)">Join</button>
+    <div id="form-error" class="well well-sm" ng-show="ctrl.error" >{{ctrl.error}}</div>
+  </div>
+
+</script>
+
+<script type="text/ng-template" id="confirm.modal">
+
+  <div class="modal-body">
+    <div>Do you want to leave the room: {{mCtrl.roomId}} ?</div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default"
+            ng-click="mCtrl.yes()">Yes</button>
+    <button type="button" class="btn btn-default"
+            ng-click="mCtrl.no()">No</button>
+  </div>
+
+</script>
+
+

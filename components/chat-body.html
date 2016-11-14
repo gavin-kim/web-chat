@@ -1,0 +1,77 @@
+<!-- chat-board -->
+<div id="chat-board">
+  <div id="message-container">
+    <div class="message" ng-repeat="message in ctrl.messages[ctrl.roomId] track by $index">
+      <div class="message-header">
+        <img ng-src="icons/{{message.user.iconIndex}}.png"
+             class="img-circle message-icon">
+      </div><div class="message-content">
+      <div class="message-username">{{message.user.name}}
+        <span class="message-timestamp">{{message.timeStamp | date: 'h:mm a'}}</span>
+      </div>
+      <div class="message-body" ng-style="{color: message.color}">{{message.body}}</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- chat-input -->
+<div id="chat-input">
+  <div class="input-group">
+
+    <span class="input-group-btn">
+      <button id="input-icon-chooser" class="btn btn-default">
+        <img id="input-icon-img" class="img-circle"
+             ng-src="icons/{{ctrl.iconIndex}}.png" >
+      </button>
+    </span>
+
+    <form id="form-input" ng-submit="ctrl.send()" ng-hide="ctrl.showNameForm">
+      <input id="input-message" class="form-control" placeholder="Message"
+             type="text" ng-model="ctrl.inputMessage" autocomplete="off"
+             ng-style="{color: ctrl.color}"/>
+    </form>
+
+
+    <form id="form-change-name" ng-submit="ctrl.changeName()" ng-show="ctrl.showNameForm">
+      <input id="input-change-name" class="form-control" placeholder="Type a new name"
+             type="text" ng-model="ctrl.name" autocomplete="off"/>
+    </form>
+
+    <span class="input-group-btn" ng-click="ctrl.cancel()" ng-show="ctrl.showNameForm">
+      <button class="btn btn-default" type="button">Cancel</button>
+    </span>
+
+
+    <span class="input-group-btn">
+      <button class="form-control" colorpicker="hex" colorpicker-size="100"
+              type="button" colorpicker-position="top" ng-model="ctrl.color">
+        <span class="glyphicon glyphicon-tint gi-15x" ng-style="{color: ctrl.color}"></span>
+      </button>
+    </span>
+
+    <span class="input-group-btn">
+      <input class="hidden" id="file-chooser" type="file" ng-model="file"/>
+      <button class="btn btn-default" ng-click="ctrl.openFileChooser()">
+        <span class="glyphicon glyphicon-paperclip gi-15x"></span>
+      </button>
+    </span>
+
+    <div class="input-group-btn dropup">
+      <button type="button" class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-cog gi-15x"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li class="dropdown-header">Setting</li>
+        <li><a href="" ng-click="ctrl.showNameInput()">Name</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+  </div><!-- /input-group -->
+</div>
+
+
+
+
+

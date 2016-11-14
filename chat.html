@@ -1,0 +1,34 @@
+<html>
+<head>
+  <base href="/chat/" />
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/angular/angular.min.js" ></script>
+  <script src="../lib/angular-route/angular-route.min.js" ></script>
+  <script src="../lib/angular-ui-bootstrap/ui-bootstrap-tpls.js" ></script>
+  <script src="../lib/sockjs-client/sockjs-1.1.1.min.js" ></script>
+  <script src="../lib/stompjs/stomp.min.js" ></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../lib/angular-bootstrap-colorpicker/bootstrap-colorpicker-module.min.js"></script>
+
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../lib/angular-bootstrap-colorpicker/colorpicker.min.css" />
+  <link rel="stylesheet" href='css/chat.css' />
+
+  <title>Chat</title>
+</head>
+
+<body ng-app="app.chat" ng-controller="ChatController">
+  <div ng-view></div>
+
+  <script src="app.chat.module.js"></script>
+  <script src="app.chat.config.js"></script>
+  <script src="services/chat.service.js"></script>
+  <script src="controllers/chat.controller.js"></script>
+  <script src="layout/chat-layout.component.js"></script>
+  <script src="components/chat-form.component.js"></script>
+  <script src="components/chat-header.component.js"></script>
+  <script src="components/chat-nav.component.js"></script>
+  <script src="components/chat-body.component.js"></script>
+
+</body>
+</html>

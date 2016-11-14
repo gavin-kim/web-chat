@@ -1,0 +1,46 @@
+<div id="chat-form-header" class="jumbotron">
+  <h1 class="display-1">
+    Chat<br>
+    <small class="text-mote">Create an instant chat room.</small>
+  </h1>
+</div>
+
+<form id="chat-form-body" class="form-horizontal">
+  <div class="form-group">
+    <label for="roomId" class="col-xs-2 control-label">Room name:</label>
+    <div class="col-xs-10">
+      <input id="roomId" type="text" class="form-control" autocomplete="off"
+             ng-model="roomId" placeholder="Room Name" required/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="col-xs-2 control-label">Password:</label>
+    <div class="col-xs-10">
+      <input id="password" type="text" class="form-control" autocomplete="off"
+             ng-model="password" placeholder="Password (Optional)"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="userName" class="col-xs-2 control-label">User name:</label>
+    <div class="col-xs-10">
+      <input id="userName" type="text" class="form-control" autocomplete="off"
+             ng-model="userName" placeholder="User Name" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="pull-right">
+      <button type="button" class="btn btn-default btn-lg form-button"
+              ng-click="ctrl.createRoom(roomId, password, userName)">Create</button>
+      <button type="button" class="btn btn-default btn-lg form-button"
+              ng-click="ctrl.joinRoom(roomId, password, userName)">Join</button>
+    </div>
+  </div>
+
+  <div class="form-group" ng-show="ctrl.error">
+    <div id="form-error" class="well well-sm">{{ctrl.error}}</div>
+  </div>
+</form>
+
