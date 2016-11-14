@@ -16,7 +16,8 @@ body {
     resize: none!important;
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif
+    font-family: "Chewy", cursive;
+    font-size: 16px;
 }
 
 .chat-header-container {
@@ -30,7 +31,6 @@ body {
     text-align: center;
     resize: none;
     height: 5%;
-    font-family: "Arial Black", Gadget, sans-serif;
 }
 
 #connection-icon {
@@ -104,9 +104,9 @@ body {
 }
 
 chat-body {
-    resize: none;
     height: 90%;
     padding-right: 0;
+    font-family: "PT Sans", sans-serif;
 }
 
 #chat-board {
@@ -141,8 +141,7 @@ chat-body {
 .message-header {
     display: inline;
     width: 5%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 5px 10px;
 }
 
 .message-icon {
@@ -157,14 +156,13 @@ chat-body {
 
 .message-username {
     width: 100%;
-    font-weight: bolder;
-    font-size: larger;
+    font-weight: bold;
 }
 
 .message-timestamp {
     margin-left: 20px;
     font-weight: lighter;
-    font-size: smaller;
+    font-size: small;
 }
 
 .message-body {
@@ -301,7 +299,7 @@ chat-nav {
 }
 
 #chat-error-message {
-    background-color: #000000;
+    background-color: rgba(171, 213, 224, 0.5);
     color: #f36153;
 }
 
