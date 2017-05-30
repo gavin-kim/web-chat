@@ -1,2 +1,2 @@
-# web-chat-server
+# web-chat
 
